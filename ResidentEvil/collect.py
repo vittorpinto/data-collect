@@ -33,6 +33,11 @@ def get_basic_infos(soup):
         data[chave] = valor.strip(" ")
     return data
 
+def get_aparicoes(soup):
+    div_page = soup.find ("div", class_ = 'td-page-content')
+    lista = div_page.find_all("li")
+    return lista
+
 # %%
 
 url = "https://www.residentevildatabase.com/personagens/ada-wong/"
@@ -41,7 +46,8 @@ resp = get_content(url)
 if resp.status_code != 200:
     print ("nao da")
 else:
-    soup = BeautifulSoup(resp.text)
+    soup = BeautifulSoup(resp.text, features="lxml")
     get_basic_infos(soup)
+    print(get_aparicoes(soup))
 
 # %%
