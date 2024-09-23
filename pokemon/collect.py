@@ -5,9 +5,11 @@ import pandas
 import datetime
 import os
 
+#%%
 print (os.getcwd())
-os.chdir("../pokemon")
-# %%
+# os.chdir("../pokemon")
+
+    # %%
 class Collector():
     
     def __init__(self,url):
@@ -47,4 +49,6 @@ url = "https://pokeapi.co/api/v2/pokemon"
 collect = Collector(url)
 
 collect.auto_exec()
+# %%
+
 # %%
